@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+//
+// import Form from './Form.js';
+// import Preview from './Preview.js'
 
 class App extends Component {
 
@@ -7,25 +9,32 @@ class App extends Component {
 
     super(props);
     //includes the constructor of App's parents component class
-    this.state = {gifts: []};
+    this.state = {lineItems : []};
   }
 
-  addGift = () => {
-
-    const { gifts } = this.state;
-    const ids = this.state.gifts.map(gift => gift.id);
-    const max_id = ids.length > 0 ? Math.max(...ids) : 0;
-
-    gifts.push({ id: max_id + 1})
-
-    this.setState({ gifts });
+  addLineItem = () => {
 
   }
 
   render() {
     return (
       <div className="App">
-        <Button onClick={this.addGift} className="btn-add"></Button>
+
+        {/* <button onClick={() => alert("hi!")} className="btn-add">Preview PDF</button>
+        <button onClick={() => alert("hi!")} className="btn-add">Email</button> */}
+        <button onClick={() => alert("hi!")} className="btn-add">Add Item</button>
+
+
+        <div className="LineItemList">
+
+        {  this.state.lineItems.map(item => {
+          return( <LineItem key={lineItem.id} /> )
+        })}
+
+        </div>
+
+
+
       </div>
     )
   }
