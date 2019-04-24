@@ -9,11 +9,12 @@ class App extends Component {
 
     super(props);
     //includes the constructor of App's parents component class
+
     this.state = {lineItems : []};
   }
 
-  addLineItem = () => {
-
+  addLineItem = (obj) => {
+    this.state.lineItems.push(obj)
   }
 
   render() {
@@ -28,7 +29,7 @@ class App extends Component {
         <div className="LineItemList">
 
         {  this.state.lineItems.map(item => {
-          return( <LineItem key={lineItem.id} /> )
+          return( <LineItem key={lineItem.id} addLineItem={this.addLineItem}/> )
         })}
 
         </div>

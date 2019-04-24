@@ -13,22 +13,12 @@ const Form = (props) => {
 
         <label for="receiver">To:</label>
         <input name="receiver" type="text"></input>
-      </div>
-      <div>Line Items
 
-        <label for="description">Description:</label>
-        <input name="description" type="text"></input>
+        <label for="sent">Sent:</label>
+        <input name="sent" type="text"></input>
 
-        <label for="quantity">Quantity:</label>
-        <input name="quantity" type="text"></input>
-
-        <label for="rate">Rate:</label>
-        <input name="rate" type="text"></input>
-
-        <label for="total">Total:</label>
-        <input name="total"></input>
-
-        <button>Add</button>
+        <label for="due">Due:</label>
+        <input name="due" type="text"></input>
       </div>
     </div>
   )
