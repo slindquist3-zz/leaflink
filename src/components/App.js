@@ -1,67 +1,79 @@
 import React, { Component } from 'react';
 import Total from './Total.js';
 import LineItemTable from './LineItemTable.js';
-import Header from './Header.js'
+import Header from './Header.js';
+import AddressDetails from './AddressDetails.js'
 
 class App extends Component {
 
   constructor(props) {
-
     super(props);
 
-    this.state = {lineItems : []};
+    this.state = { lineItems : [], subtotal: 0,
+                   description: '', quantity: '', rate: '', balance: ''};
   }
 
-  addLineItem = (obj) => {
-    this.state.lineItems.push(obj)
+  addLineItem = () => {
+
+    this.setState({subtotal: this.state.subtotal + this.state.balance})
+
+    const lineItem = { description: this.state.description,
+                       quantity: this.state.quantity,
+                       rate: this.state.rate,
+                       balance: this.state.balance }
+
+    this.state.lineItems.push( lineItem );
+
+    this.setState({ description: '',
+                    quantity: '',
+                    rate: '',
+                    balance: '' });
   }
 
   render() {
     return (
+
       <div className="App">
-
-      <Header />
-
-        <div>Address Info
-          <label for="invoiceNum">Invoice #:</label>
-          <input name="invoiceNum" type="text"></input>
-
-          <label for="sender">From:</label>
-          <input name="sender" type="text"></input>
-
-          <label for="receiver">To:</label>
-          <input name="receiver" type="text"></input>
-
-          <label for="sent">Sent:</label>
-          <input name="sent" type="text"></input>
-
-          <label for="due">Due:</label>
-          <input name="due" type="text"></input>
-        </div>
+        <Header />
+        <AddressDetails/>
 
         <div className="LineItem">
-          <label for="description">Description:</label>
+          <label htmlFor="description">Description:</label>
           <input name="description"
                  type="text"
                  onChange={event => this.setState({description: event.target.value})}
-                 className="input-description"></input>
+                 className="input-description"
+                 value={this.state.description}></input>
 
-          <label for="quantity">Quantity:</label>
+          <label htmlFor="quantity">Quantity:</label>
           <input name="quantity"
                  type="number"
                  onChange={event => this.setState({quantity: event.target.value})}
-                 className="input-quantity"></input>
+                 className="input-description"
+                 value={this.state.quantity}></input>
+
+          <label htmlFor="rate">Rate:</label>
+          <input name="rate"
+                 type="number"
+                 onChange={event => this.setState({rate: event.target.value})}
+                 className="input-rate"
+                 value={this.state.rate}></input>
+
+          <label htmlFor="balance">Balance:</label>
+          <input name="balance"
+                 type="number"
+                 onChange={event => this.setState({balance: parseInt(event.target.value)})}
+                 className="input-balance"
+                 value={(this.state.balance)}></input>
+
+               <button onClick={this.addLineItem}>Add Item</button>
         </div>
-        <button>Add Item</button>
 
-        <LineItemTable lineItems={this.state.lineItems} />>
-
+        <LineItemTable lineItems={this.state.lineItems} />
         <Total subtotal={this.state.subtotal} taxRate={this.state.taxRate}/>
-
       </div>
     )
   }
-
 }
 
 export default App

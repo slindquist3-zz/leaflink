@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans|Poppins');
 
+//typography
+$headline: 'Poppins'
+$body: 'Noto Sans'
+
 //breakpoints
 $mobile-breakpoint: 600px;
 $tablet-breakpoint: 1060px;
@@ -14,9 +18,7 @@ $grandaddy-purp: #1B1443;
 //black substitute
 
 
-//typography
-$headline: 'Poppins'
-$body: 'Noto Sans'
+
 // Headline font: Poppins
 // Body Text Font: Noto Sans
 // Fonts are available on https://fonts.google.com/

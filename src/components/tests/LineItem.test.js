@@ -16,7 +16,7 @@ describe( 'LineItem', () => {
 
   describe( 'when typing into description input', () => {
 
-    beforeEach(() => {
+    behtmlForeEach(() => {
       lineItem.find('.input-description').simulate('change', { target: {value: 'Alaskan Thunderfuck 5000'} });
     });
 
@@ -27,7 +27,7 @@ describe( 'LineItem', () => {
 
   describe( 'when typing into quantity input', () => {
 
-    beforeEach(() => {
+    behtmlForeEach(() => {
       lineItem.find('.input-quantity').simulate('change', { target: {value: 5} });
     });
 
