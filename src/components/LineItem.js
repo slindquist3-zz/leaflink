@@ -15,12 +15,10 @@ class LineItem extends Component {
                        rate: this.state.rate,
                        balance: this.state.balance }
 
-    this.props.onAddItem(lineItem);
-
-
-
+    this.props.handleAddItem(lineItem);
   }
-    render() {
+
+  render() {
 
     return (
       <div className="LineItem">

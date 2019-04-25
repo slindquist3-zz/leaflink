@@ -14,7 +14,8 @@ const LineItemTable = (props) => {
 
   return (
 
-    <div className="LineItemTable">
+    <div className="LineItemTable"> 
+
       <table>
       <thead>
          <tr>

@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import Total from './Total.js';
 import LineItemTable from './LineItemTable.js';
 import Header from './Header.js';
 import AddressDetails from './AddressDetails.js'
 import LineItem from './LineItem.js'
+import Preview from './Preview.js'
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { lineItems : [], subtotal: 0,
-                   description: '', quantity: '', rate: '', balance: ''};
+    this.state = { lineItems : [], subtotal: 0, addressDetails: {} };
   }
 
-  onAddItem = (lineItem) => {
+  handleAddItem = (lineItem) => {
     this.setState({
       lineItems: [
         ...this.state.lineItems,
@@ -23,6 +22,12 @@ class App extends Component {
     });
   }
 
+  handleUpdateAddress = ( addressDetails ) => {
+    this.setState({ addressDetails })
+  }
+
+
+
 
 
   render() {
@@ -30,10 +35,12 @@ class App extends Component {
 
       <div className="App">
         <Header />
-        <AddressDetails/>
-        <LineItem onAddItem={this.onAddItem} />
-        <LineItemTable lineItems={this.state.lineItems} />
-        <Total subtotal={this.state.subtotal} taxRate={this.state.taxRate}/>
+        <AddressDetails handleUpdateAddress={this.handleUpdateAddress}/>
+        <LineItem handleAddItem={this.handleAddItem} />
+        <Preview lineItems={this.state.lineItems}
+                 addressDetails={this.state.addressDetails}
+                 subtotal={this.state.subtotal}
+                 taxRate={this.state.taxRate}/>
       </div>
     )
   }
