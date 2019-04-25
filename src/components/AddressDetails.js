@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/AddressDetails.scss';
 
 class AddressDetails extends Component {
 

@@ -8,7 +8,8 @@ const Total = (props) => {
       <div>Subtotal: {props.subtotal}</div>
       <div>Tax Rate: </div>
       <div>Taxes: </div>
-    <div>Total: </div>
+      <div>Discounts: </div>
+      <div>Total: </div>
     </div>
 
   )
