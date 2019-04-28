@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Total.scss';
 
 const Total = (props) => {
 

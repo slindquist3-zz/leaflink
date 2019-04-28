@@ -1,37 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import './styles/LineItemTable.scss'
 
-const LineItemTable = (props) => {
+const LineItemTable = (props) =>    {
 
-  const items = props.lineItems.map((item) =>
-    <tr>
-      <td>{item.description}</td>
-      <td>{item.quantity}</td>
-      <td>{item.rate}</td>
-      <td>{item.balance}</td>
-    </tr>);
+  const children = React.Children.map(props.children, child => {
+    return React.cloneElement(child, {
+      handleDeleteLineItem: props.handleDeleteLineItem,
+      handleUpdateLineItem: props.handleUpdateLineItem
+    });
+  });
 
-  return (
+    return (
+      <div className="LineItemTable">
+        <table>
+        <thead>
+           <tr>
+             <th>Description</th>
+             <th>Quantity</th>
+             <th>Rate</th>
+             <th>Balance</th>
+             <th><span className="invisible">Delete</span></th>
+           </tr>
+         </thead>
+         <tbody>
+           {children}
+         </tbody>
+       </table>
+      </div>
+    )
 
-    <div className="LineItemTable"> 
-
-      <table>
-      <thead>
-         <tr>
-           <th>Description</th>
-           <th>Quantity</th>
-           <th>Rate</th>
-           <th>Balance</th>
-         </tr>
-       </thead>
-       <tbody>
-        {items}
-       </tbody>
-     </table>
-    </div>
-
-  )
 
 }
 

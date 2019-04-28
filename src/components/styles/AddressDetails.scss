@@ -1,4 +1,21 @@
+@import './variables';
+
 .AddressDetails {
   margin-top: 40px;
   margin-bottom: 40px;
+
+  input {
+    display: block;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+    input {
+      width: 200px;
+    }
+  }
+
+
 }
