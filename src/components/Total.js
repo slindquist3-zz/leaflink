@@ -31,7 +31,7 @@ const Total = (props) => {
     <div className="Total">
       <div>Subtotal: {props.subtotal}</div>
 
-      <label>Tax Rate:</label>
+      <label>Tax Rate</label>
       <input placeholder="Local Tax Rate"
              value={props.taxRate}
              type="number"
@@ -39,7 +39,7 @@ const Total = (props) => {
 
       <div>Taxes: {taxValue}</div>
 
-      <label>Discounts: </label>
+      <label>Discounts </label>
       <input placeholder="Relevent Discounts"
              value={props.discount}
              type="number"

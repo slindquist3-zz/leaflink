@@ -1,6 +1,27 @@
+@import './variables';
+
+
 .App {
 
-  width: 80%;
+  width: 100%;
   margin: auto;
   background-color: white;
+
+  .download-as-pdf {
+
+    cursor: pointer;
+    background-color: $blue-dream;
+    color: $white-widow;
+    transition: background-color 0.5s ease;
+    border-radius: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+
+    &:hover,:active {
+      background-color: $la-confidential;
+    }
+
+  }
+
 }

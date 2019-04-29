@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
+
 import LineItemTable from './LineItemTable.js';
 import Header from './Header.js';
 import AddressDetails from './AddressDetails.js'
 import Total from './Total.js'
 import AddItemButton from './AddItemButton.js'
 import LineItem from './LineItem.js'
+
 
 import './styles/App.scss'
 
@@ -33,6 +38,12 @@ class App extends Component {
   }
 
   handleDeleteLineItem = (index) => {
+
+    if (this.state.lineItems.length === 1) {
+      alert('Invoices must contain at least 1 line item.')
+      return;
+    }
+
     const lineItems = this.state.lineItems;
           lineItems.splice(index, 1);
 
@@ -99,12 +110,24 @@ class App extends Component {
     this.setState({discount})
   }
 
+  printDocument = () => {
+    const input = document.getElementById('preview');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("download.pdf");
+      })
+  }
+
 
   render() {
 
     return (
 
       <div className="App">
+        <div id="preview">
         <Header />
         <AddressDetails handleUpdateAddress={this.handleUpdateAddress}/>
 
@@ -123,6 +146,9 @@ class App extends Component {
                discount={this.state.discount}
                handleDiscountUpdate={this.handleDiscountUpdate}
                handleTaxRateUpdate={this.handleTaxRateUpdate} />
+        </div>
+        <button className="download-as-pdf" onClick={this.printDocument}>Download as PDF</button>
+
       </div>
     )
   }

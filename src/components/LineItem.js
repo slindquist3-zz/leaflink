@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/LineItem.scss';
 
 const LineItem = (props) => {
 
@@ -9,15 +10,18 @@ const LineItem = (props) => {
     return (
         <tr className="LineItem">
           <td>
-            <input name="description"
-                   type="text"
-                   onChange={event => props.handleUpdateDescription(event, props.index, "description")}
-                   className="input-description"
-                   value={props.description}>
-            </input>
+            <label className="mobile-label">Description</label>
+              <input name="description"
+                     type="text"
+                     onChange={event => props.handleUpdateDescription(event, props.index, "description")}
+                     className="input-description"
+                     value={props.description}>
+              </input>
           </td>
 
+
           <td>
+            <label className="mobile-label">Quantity</label>
             <input name="quantity"
                    type="number"
                    onChange={event => props.handleUpdateQuantity(event, props.index, "quantity")}
@@ -27,6 +31,7 @@ const LineItem = (props) => {
           </td>
 
           <td>
+            <label className="mobile-label">Rate</label>
             <input name="rate"
                    type="number"
                    onChange={event => props.handleUpdateRate(event, props.index, "rate")}
@@ -36,6 +41,8 @@ const LineItem = (props) => {
           </td>
 
           <td>
+            <label className="mobile-label">Balance</label>
+
             <input name="balance"
                    type="number"
                    onChange={event => props.handleUpdateBalance(event, props.index, "balance")}

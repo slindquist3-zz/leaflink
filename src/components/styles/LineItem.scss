@@ -1,0 +1,33 @@
+@import './variables';
+
+
+.LineItem {
+
+  .mobile-label {
+    display: none;
+  }
+
+
+  @media only screen and (max-width: $mobile-breakpoint) {
+
+    margin-bottom: 40px;
+
+    input {
+      display: block;
+      width: 250px;
+    }
+
+    .mobile-label {
+      display: block;
+    }
+
+    td {
+      display: block;
+    }
+
+    .delete-button {
+      width: 80px;
+    }
+
+  }
+}

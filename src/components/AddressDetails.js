@@ -37,7 +37,7 @@ class AddressDetails extends Component {
 
       <div className="AddressDetails">
           <div className="invoice-num">
-          <label htmlFor="invoiceNum">Invoice #:</label>
+          <label htmlFor="invoiceNum">Invoice Number</label>
           <input onChange={event => this.setState({id: event.target.value})}
                  value={this.state.id}
                  name="invoiceNum"
@@ -45,7 +45,7 @@ class AddressDetails extends Component {
           </div>
           <div className="persons">
             <div className="from">
-              <label htmlFor="sender">From: </label>
+              <label htmlFor="sender">From </label>
               <input value={this.state.sender}
                      onChange={event => this.setState({sender: event.target.value})}
                      name="sender"
@@ -53,7 +53,7 @@ class AddressDetails extends Component {
                      className="address"></input>
             </div>
             <div className="to">
-              <label htmlFor="receiver">To: </label>
+              <label htmlFor="receiver">To </label>
               <input name="receiver"
                      value={this.state.receiver}
                      onChange={event => this.setState({receiver: event.target.value})}
@@ -62,14 +62,14 @@ class AddressDetails extends Component {
             </div>
           </div>
 
-          <label htmlFor="sent">Sent: </label>
+          <label htmlFor="sent">Sent </label>
           <input name="sent"
                  value={this.state.sent}
                  onChange={event => this.setState({sent: event.target.value})}
                  type="date"
                  className="address"></input>
 
-          <label htmlFor="due">Due: </label>
+          <label htmlFor="due">Due </label>
           <input name="due"
                  value={this.state.due}
                  onChange={event => this.setState({due: event.target.value})}
