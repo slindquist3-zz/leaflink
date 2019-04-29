@@ -4,12 +4,34 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  input {
-    display: block;
-    width: 400px;
-    height: 40px;
-    margin-bottom: 20px;
+  .address {
+    margin-left: 20px;
+
   }
+
+  label {
+    display: block;
+  }
+
+
+
+  .persons {
+
+    .from {
+      display: inline;
+    }
+
+    .to {
+      display: inline;
+    }
+
+  }
+
+  .dates {
+
+  }
+
+
 
   @media only screen and (max-width: $mobile-breakpoint) {
     input {

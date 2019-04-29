@@ -1,15 +1,24 @@
 import React, { Component } from 'react';
+import LineItem from './LineItem'
 
 import './styles/LineItemTable.scss'
 
 const LineItemTable = (props) =>    {
 
-  const children = React.Children.map(props.children, child => {
-    return React.cloneElement(child, {
-      handleDeleteLineItem: props.handleDeleteLineItem,
-      handleUpdateLineItem: props.handleUpdateLineItem
-    });
-  });
+  const lineItems = props.lineItems.map((item, index) =>
+    <LineItem key={index}
+              index={index}
+              handleDeleteLineItem={props.handleDeleteLineItem}
+              handleUpdateDescription={props.handleUpdateDescription}
+              handleUpdateRate={props.handleUpdateRate}
+              handleUpdateQuantity={props.handleUpdateQuantity}
+              handleUpdateBalance={props.handleUpdateBalance}
+              description={props.lineItems[index].description}
+              quantity={props.lineItems[index].quantity}
+              rate={props.lineItems[index].rate}
+              balance={props.lineItems[index].balance}/>
+
+  );
 
     return (
       <div className="LineItemTable">
@@ -24,7 +33,9 @@ const LineItemTable = (props) =>    {
            </tr>
          </thead>
          <tbody>
-           {children}
+
+           {lineItems}
+
          </tbody>
        </table>
       </div>

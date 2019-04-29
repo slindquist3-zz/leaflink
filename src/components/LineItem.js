@@ -1,87 +1,54 @@
 import React, { Component } from 'react';
 
-import { isEquivalent } from './helper.js'
+const LineItem = (props) => {
 
-class LineItem extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = { description: '', quantity: '', rate: '', balance: '', id: props.id };
+  const deleteItem = () => {
+    props.handleDeleteLineItem(props.index)
   }
-  //
-  componentDidUpdate( prevProps, prevState ) {
-    if ( isEquivalent( prevState, this.state )) {
-      return false;
-    } else {
-      this.updateLineItem();
-    }
-  }
-
-  updateLineItem = () => {
-
-    console.log("hi");
-    const lineItemData = { description: this.state.description,
-                       quantity: this.state.quantity,
-                       rate: this.state.rate,
-                       balance: this.state.balance,
-                       id: this.state.id }
-
-
-    this.props.handleUpdateLineItem( lineItemData);
-  }
-
-  deleteLineItem = () => {
-    this.props.handleDeleteLineItem(this.props.id)
-  }
-
-  render() {
 
     return (
         <tr className="LineItem">
           <td>
             <input name="description"
                    type="text"
-                   onChange={event => this.setState({description: event.target.value})}
+                   onChange={event => props.handleUpdateDescription(event, props.index, "description")}
                    className="input-description"
-                   value={this.state.description}>
+                   value={props.description}>
             </input>
           </td>
 
           <td>
             <input name="quantity"
                    type="number"
-                   onChange={event => this.setState({quantity: event.target.value})}
+                   onChange={event => props.handleUpdateQuantity(event, props.index, "quantity")}
                    className="input-description"
-                   value={this.state.quantity}>
+                   value={props.quantity}>
             </input>
           </td>
 
           <td>
             <input name="rate"
                    type="number"
-                   onChange={event => this.setState({rate: event.target.value})}
+                   onChange={event => props.handleUpdateRate(event, props.index, "rate")}
                    className="input-rate"
-                   value={this.state.rate}>
+                   value={props.rate}>
             </input>
           </td>
 
           <td>
             <input name="balance"
                    type="number"
-                   onChange={event => this.setState({balance: parseInt(event.target.value)})}
+                   onChange={event => props.handleUpdateBalance(event, props.index, "balance")}
                    className="input-balance"
-                   value={(this.state.balance)}>
+                   value={props.balance}>
             </input>
           </td>
 
           <td>
-            <input type="button" value="delete" onClick={this.deleteLineItem}/>
+            <input className="delete-button" type="button" value="delete" onClick={deleteItem}/>
           </td>
         </tr>
     )
-
-  }
 
 }
 

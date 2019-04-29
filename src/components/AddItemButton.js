@@ -3,7 +3,7 @@ import React from 'react';
 const AddItemButton = (props) => {
 
   return(
-    <button onClick={props.handleAddLineItem}>Add Item
+    <button className="add-item-button" onClick={props.handleAddLineItem}>Add Item
 
     </button>
 

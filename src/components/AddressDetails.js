@@ -8,7 +8,7 @@ class AddressDetails extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { id: 0, sender: '', receiver: '', sent: '', due: '' };
+    this.state = { id: '', sender: '', receiver: '', sent: '', due: '' };
   }
 
   sendAddressDetails = () => {
@@ -36,35 +36,45 @@ class AddressDetails extends Component {
     return (
 
       <div className="AddressDetails">
+          <div className="invoice-num">
           <label htmlFor="invoiceNum">Invoice #:</label>
           <input onChange={event => this.setState({id: event.target.value})}
                  value={this.state.id}
                  name="invoiceNum"
                  type="text"></input>
+          </div>
+          <div className="persons">
+            <div className="from">
+              <label htmlFor="sender">From: </label>
+              <input value={this.state.sender}
+                     onChange={event => this.setState({sender: event.target.value})}
+                     name="sender"
+                     type="text"
+                     className="address"></input>
+            </div>
+            <div className="to">
+              <label htmlFor="receiver">To: </label>
+              <input name="receiver"
+                     value={this.state.receiver}
+                     onChange={event => this.setState({receiver: event.target.value})}
+                     type="text"
+                     className="address"></input>
+            </div>
+          </div>
 
-          <label htmlFor="sender">From:</label>
-          <input value={this.state.sender}
-                 onChange={event => this.setState({sender: event.target.value})}
-                 name="sender"
-                 type="text"></input>
-
-          <label htmlFor="receiver">To:</label>
-          <input name="receiver"
-                 value={this.state.receiver}
-                 onChange={event => this.setState({receiver: event.target.value})}
-                 type="text"></input>
-
-          <label htmlFor="sent">Sent:</label>
+          <label htmlFor="sent">Sent: </label>
           <input name="sent"
                  value={this.state.sent}
                  onChange={event => this.setState({sent: event.target.value})}
-                 type="text"></input>
+                 type="date"
+                 className="address"></input>
 
-          <label htmlFor="due">Due:</label>
+          <label htmlFor="due">Due: </label>
           <input name="due"
                  value={this.state.due}
                  onChange={event => this.setState({due: event.target.value})}
-                 type="text"></input>
+                 type="date"
+                 className="address"></input>
       </div>
 
 
