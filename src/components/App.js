@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   handleAddLineItem = () => {
-
     this.setState({
         lineItems: [
           ...this.state.lineItems,
@@ -58,8 +57,6 @@ class App extends Component {
     if (type === "balance") {
       this.calculateSubtotal();
     }
-
-    console.log(this.state.lineItems);
   }
 
   handleUpdateAddress = ( addressDetails ) => {
@@ -70,7 +67,7 @@ class App extends Component {
     const lineItems = this.state.lineItems;
     let subtotal = 0;
 
-    for (var i = 0; i < lineItems.length; i++) {
+    for (let i = 0; i < lineItems.length; i++) {
     subtotal += parseInt(lineItems[i].balance);
     }
 
@@ -87,7 +84,7 @@ class App extends Component {
     this.setState({discount})
   }
 
-  printDocument = () => {
+  downloadDocument = () => {
     const input = document.getElementById('preview');
     html2canvas(input)
       .then((canvas) => {
@@ -120,14 +117,15 @@ class App extends Component {
                handleDiscountUpdate={this.handleDiscountUpdate}
                handleTaxRateUpdate={this.handleTaxRateUpdate} />
         </div>
-        <button className="download-as-pdf" onClick={this.printDocument}>Download PDF</button>
+        <button className="download-as-pdf" onClick={this.downloadDocument}>Download PDF</button>
+
         <h3 className="preview-header">Invoice Preview</h3>
+
         <Preview lineItems={this.state.lineItems}
                  addressDetails={this.state.addressDetails}
                  taxRate={this.state.taxRate}
                  discount={this.state.discount}
                  subtotal={this.state.subtotal}/>
-
 
       </div>
     )

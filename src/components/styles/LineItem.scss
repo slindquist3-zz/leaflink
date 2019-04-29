@@ -1,8 +1,6 @@
 @import './variables';
 
-
 .LineItem {
-
   width: 100%;
 
   .mobile-label {
@@ -19,7 +17,7 @@
   }
 
   input {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   td {
@@ -44,11 +42,15 @@
 
     td {
       display: block;
+      margin-top: 10px;
 
       input {
         width: 100%;
       }
     }
 
+    .delete-button {
+      float: right;
+    }
   }
 }

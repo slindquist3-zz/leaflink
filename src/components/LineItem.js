@@ -11,14 +11,12 @@ const LineItem = (props) => {
         <tr className="LineItem">
           <td>
             <label className="mobile-label">Description</label>
-              <input name="description"
-                     type="text"
-                     onChange={event => props.handleUpdateLineItem(event, props.index, "description")}
-                     className="input-description"
-                     value={props.description}>
-              </input>
+            <input name="description"
+                   type="text"
+                   onChange={event => props.handleUpdateLineItem(event, props.index, "description")}
+                   className="input-description"
+                   value={props.description}/>
           </td>
-
 
           <td>
             <label className="mobile-label">Quantity</label>
@@ -26,8 +24,7 @@ const LineItem = (props) => {
                    type="number"
                    onChange={event => props.handleUpdateLineItem(event, props.index, "quantity")}
                    className="input-description"
-                   value={props.quantity}>
-            </input>
+                   value={props.quantity}/>
           </td>
 
           <td>
@@ -36,19 +33,16 @@ const LineItem = (props) => {
                    type="number"
                    onChange={event => props.handleUpdateLineItem(event, props.index, "rate")}
                    className="input-rate"
-                   value={props.rate}>
-            </input>
+                   value={props.rate}/>
           </td>
 
           <td>
             <label className="mobile-label">Balance</label>
-
             <input name="balance"
                    type="number"
                    onChange={event => props.handleUpdateLineItem(event, props.index, "balance")}
                    className="input-balance"
-                   value={props.balance}>
-            </input>
+                   value={props.balance}/>
           </td>
 
           <td>

@@ -15,7 +15,7 @@ const Total = (props) => {
   }
 
   const calculateTotal = () => {
-    var subtotal = props.subtotal,
+    let subtotal = props.subtotal,
         taxes,
         total,
         discount;
@@ -29,27 +29,27 @@ const Total = (props) => {
   return (
 
     <div className="Total">
-      <div>Subtotal: {props.subtotal}</div>
+      <div className="subtotal">Subtotal: {props.subtotal}</div>
 
-      <label>Tax Rate</label>
-      <input placeholder="Local Tax Rate"
-             value={props.taxRate}
-             type="number"
-             onChange={event => props.handleTaxRateUpdate(event)}/>
+      <label >Tax Rate</label>
+      <input placeholder="Enter Tax Rate"
+               value={props.taxRate}
+               type="number"
+               onChange={event => props.handleTaxRateUpdate(event)}
+                className="taxRate"/>
 
-      <div>Taxes: {taxValue}</div>
+      <div className="taxes">Taxes: {taxValue}</div>
 
-      <label>Discounts </label>
-      <input placeholder="Relevent Discounts"
-             value={props.discount}
-             type="number"
-             onChange={event => props.handleDiscountUpdate(event)}/>
+      <label >Discounts </label>
+      <input placeholder="Apply Relevent Discounts"
+               value={props.discount}
+               type="number"
+               onChange={event => props.handleDiscountUpdate(event)}
+               className="discounts"/>
 
-      <div>Total: {total}</div>
-    </div>
-
+      <div className="total">Total: {total}</div>
+      </div>
   )
-
 }
 
 export default Total

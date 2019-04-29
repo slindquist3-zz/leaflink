@@ -26,7 +26,7 @@ const Preview = (props) => {
   }
 
   const calculateTotal = () => {
-    var subtotal = props.subtotal,
+    let subtotal = props.subtotal,
         taxes,
         total,
         discount;
@@ -46,7 +46,6 @@ const Preview = (props) => {
         <p>To: {props.addressDetails.receiver}</p>
         <p>Sent: {props.addressDetails.sent}</p>
         <p>Due: {props.addressDetails.due}</p>
-
       </div>
 
       <table className="preview-lineItems">
@@ -65,17 +64,12 @@ const Preview = (props) => {
        </tbody>
      </table>
      <div className="preview-total">
-
        <p>Subtotal: {props.subtotal}</p>
        <p>Tax Rate: {props.taxRate}</p>
        <p>Taxes: {taxValue}</p>
        <p>Discount: {props.discount}</p>
        <p>Total: {total}</p>
-
      </div>
-
-
-
     </div>
 
   )

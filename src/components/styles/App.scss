@@ -1,7 +1,6 @@
 @import './variables';
 
 .App {
-
   width: 80%;
   margin: auto;
   background-color: white;
@@ -23,9 +22,7 @@
     &:hover,:active {
       background-color: $la-confidential;
     }
-
   }
-
 
   .preview-header {
     margin-top: 40px;
@@ -34,5 +31,6 @@
 
   input {
     height: 40px;
+    font-size: 14px;
   }
 }

@@ -30,8 +30,6 @@ class AddressDetails extends Component {
     }
   }
 
-
-
   render() {
     return (
 
