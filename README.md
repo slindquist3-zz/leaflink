@@ -31,4 +31,4 @@ Thanks for taking the time to review my invoice generator code challenge.
 
 ## Testing
 
-* I have included two tests, which determine whether a user is able to add and delete LineItems. I used Jest as my testing framework but am familiar with Rspec and Jasmine/Karma as well. Being that Jest is preconfigured for React projects, it made sense to move forward with that library.
+* I have included two tests, which determine whether a user is able to add and delete LineItems. I used Jest as my testing framework because it is preconfigured to work with React, but I am familiar with Rspec and Jasmine/Karma as well.
