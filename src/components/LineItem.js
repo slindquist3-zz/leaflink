@@ -52,7 +52,7 @@ const LineItem = (props) => {
           </td>
 
           <td>
-            <input className="delete-button" type="button" value="delete" onClick={deleteItem}/>
+            <input className="delete-button" type="button" value="x" onClick={deleteItem}/>
           </td>
         </tr>
     )
