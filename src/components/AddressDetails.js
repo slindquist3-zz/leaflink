@@ -36,13 +36,13 @@ class AddressDetails extends Component {
     return (
 
       <div className="AddressDetails">
-          <div className="invoice-num">
           <label htmlFor="invoiceNum">Invoice Number</label>
           <input onChange={event => this.setState({id: event.target.value})}
                  value={this.state.id}
                  name="invoiceNum"
-                 type="text"></input>
-          </div>
+                 className="invoice-num"
+                 type="text"/>
+
           <div className="persons">
             <div className="from">
               <label htmlFor="sender">From </label>
@@ -62,19 +62,27 @@ class AddressDetails extends Component {
             </div>
           </div>
 
-          <label htmlFor="sent">Sent </label>
-          <input name="sent"
-                 value={this.state.sent}
-                 onChange={event => this.setState({sent: event.target.value})}
-                 type="date"
-                 className="address"></input>
+          <div className="dates">
+            <div className="sent">
 
-          <label htmlFor="due">Due </label>
-          <input name="due"
-                 value={this.state.due}
-                 onChange={event => this.setState({due: event.target.value})}
-                 type="date"
-                 className="address"></input>
+              <label htmlFor="sent">Sent </label>
+              <input name="sent"
+                     value={this.state.sent}
+                     onChange={event => this.setState({sent: event.target.value})}
+                     type="date"
+                     className="address"></input>
+            </div>
+            <div className="due">
+
+              <label htmlFor="due">Due </label>
+              <input name="due"
+                     value={this.state.due}
+                     onChange={event => this.setState({due: event.target.value})}
+                     type="date"
+                     className="address"></input>
+            </div>
+          </div>
+
       </div>
 
 

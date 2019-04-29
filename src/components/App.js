@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 
-
 import LineItemTable from './LineItemTable.js';
 import Header from './Header.js';
 import AddressDetails from './AddressDetails.js'
 import Total from './Total.js'
-import AddItemButton from './AddItemButton.js'
 import LineItem from './LineItem.js'
-
+import Preview from './Preview.js'
 
 import './styles/App.scss'
 
@@ -50,43 +48,22 @@ class App extends Component {
     this.setState({lineItems: lineItems});
   }
 
+  handleUpdateLineItem = (event, index, type ) => {
+    const array = this.state.lineItems;
+    const value = event.target.value;
+    array[index][type] = value
+
+    this.setState({lineItems: array})
+
+    if (type === "balance") {
+      this.calculateSubtotal();
+    }
+
+    console.log(this.state.lineItems);
+  }
+
   handleUpdateAddress = ( addressDetails ) => {
     this.setState({ addressDetails })
-  }
-
-  handleUpdateDescription = (event, index ) => {
-    const array = this.state.lineItems;
-    const description = event.target.value;
-    array[index].description = description;
-
-    this.setState({lineItems: array})
-  }
-
-  handleUpdateQuantity = (event, index ) => {
-    const array = this.state.lineItems;
-    const quantity = event.target.value;
-    array[index].quantity = quantity;
-
-    this.setState({lineItems: array})
-  }
-
-  handleUpdateRate = (event, index ) => {
-    const array = this.state.lineItems;
-    const rate = event.target.value;
-    array[index].rate = rate;
-
-    this.setState({lineItems: array})
-  }
-
-  handleUpdateBalance = (event, index ) => {
-    const array = this.state.lineItems;
-    const balance = event.target.value;
-    array[index].balance = balance;
-
-    this.setState({lineItems: array});
-
-    this.calculateSubtotal();
-
   }
 
   calculateSubtotal = () => {
@@ -127,18 +104,14 @@ class App extends Component {
     return (
 
       <div className="App">
-        <div id="preview">
-        <Header />
+        <div >
+        <Header/>
         <AddressDetails handleUpdateAddress={this.handleUpdateAddress}/>
 
         <LineItemTable lineItems={this.state.lineItems}
                        handleDeleteLineItem={this.handleDeleteLineItem}
-                       handleUpdateDescription={this.handleUpdateDescription}
-                       handleUpdateQuantity={this.handleUpdateQuantity}
-                       handleUpdateRate={this.handleUpdateRate}
-                       handleUpdateBalance={this.handleUpdateBalance} />
-
-        <AddItemButton lineItems={this.state.lineItems} handleAddLineItem={this.handleAddLineItem}  />
+                       handleUpdateLineItem={this.handleUpdateLineItem}
+                       handleAddLineItem={this.handleAddLineItem}/>
 
         <Total subtotal={this.state.subtotal}
                taxRate={this.state.taxRate}
@@ -147,7 +120,14 @@ class App extends Component {
                handleDiscountUpdate={this.handleDiscountUpdate}
                handleTaxRateUpdate={this.handleTaxRateUpdate} />
         </div>
-        <button className="download-as-pdf" onClick={this.printDocument}>Download as PDF</button>
+        <button className="download-as-pdf" onClick={this.printDocument}>Download PDF</button>
+        <h3 className="preview-header">Invoice Preview</h3>
+        <Preview lineItems={this.state.lineItems}
+                 addressDetails={this.state.addressDetails}
+                 taxRate={this.state.taxRate}
+                 discount={this.state.discount}
+                 subtotal={this.state.subtotal}/>
+
 
       </div>
     )

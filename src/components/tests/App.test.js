@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, unmount } from 'enzyme';
 import App from '../App';
 
 const app = mount(<App/>);
@@ -17,9 +17,12 @@ it( 'can add lineItems to state', () => {
 });
 
 it( 'can delete lineItems to state', () => {
-  app.find('.add-item-button').simulate('click');
-  app.find('.add-item-button').simulate('click');
-  expect(app.state().lineItems.length).toEqual(3);
-  app.find('.delete-button').at(1).simulate('click');
-  expect(app.state().lineItems.length).toEqual(2);
+  app.unmount()
+  const newApp = mount(<App/>);
+
+  newApp.find('.add-item-button').simulate('click');
+  newApp.find('.add-item-button').simulate('click');
+  expect(newApp.state().lineItems.length).toEqual(3);
+  newApp.find('.delete-button').at(1).simulate('click');
+  expect(newApp.state().lineItems.length).toEqual(2);
 });

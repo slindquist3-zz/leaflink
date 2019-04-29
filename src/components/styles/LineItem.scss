@@ -3,6 +3,8 @@
 
 .LineItem {
 
+  width: 100%;
+
   .mobile-label {
     display: none;
   }
@@ -17,8 +19,14 @@
   }
 
   input {
-    height: 40px;
     font-size: 18px;
+  }
+
+  td {
+
+    input {
+      width: 90%;
+    }
   }
 
 
@@ -28,7 +36,6 @@
 
     input {
       display: block;
-      width: 250px;
     }
 
     .mobile-label {
@@ -37,6 +44,10 @@
 
     td {
       display: block;
+
+      input {
+        width: 100%;
+      }
     }
 
   }

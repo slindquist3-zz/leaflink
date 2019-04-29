@@ -4,29 +4,62 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  .address {
-
-  }
 
   label {
     display: block;
   }
 
-
+  .invoice-num {
+    width: 100%;
+  }
 
   .persons {
 
+    width: 100%;
+    display: block;
+
+
     .from {
+      float:left;
       display: inline;
+      width: 48%;
+
+      input {width: 100%}
+
     }
 
     .to {
       display: inline;
+      width: 48%;
+      float: right;
+
+      input {width: 100%}
+
+
     }
 
   }
 
   .dates {
+    display: block;
+
+    .sent {
+      float: left;
+      display: inline;
+      width: 48%;
+      input {
+        width: 100%
+      }
+    }
+
+    .due {
+      display: inline;
+      float: right;
+      width: 48%;
+      input {
+        width: 100%;
+      }
+    }
 
   }
 
@@ -34,12 +67,8 @@
 
   @media only screen and (max-width: $mobile-breakpoint) {
 
-    .address {
-      margin-left: 0;
-    }
-    input {
-      width: 200px;
-    }
+
+
   }
 
 

@@ -1,6 +1,4 @@
 import React from 'react';
-import './styles/AddItemButton.scss';
-
 
 const AddItemButton = (props) => {
 
