@@ -6,7 +6,6 @@ import LineItemTable from './LineItemTable.js';
 import Header from './Header.js';
 import AddressDetails from './AddressDetails.js'
 import Total from './Total.js'
-import LineItem from './LineItem.js'
 import Preview from './Preview.js'
 
 import './styles/App.scss'
