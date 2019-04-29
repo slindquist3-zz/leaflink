@@ -64,11 +64,11 @@ const Preview = (props) => {
        </tbody>
      </table>
      <div className="preview-total">
-       <p>Subtotal: {props.subtotal}</p>
+       <p>Subtotal: ${props.subtotal}</p>
        <p>Tax Rate: {props.taxRate}</p>
-       <p>Taxes: {taxValue}</p>
-       <p>Discount: {props.discount}</p>
-       <p>Total: {total}</p>
+       <p>Taxes: ${taxValue}</p>
+       <p>Discount: ${props.discount}</p>
+       <p>Total: ${total}</p>
      </div>
     </div>
 

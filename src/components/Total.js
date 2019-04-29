@@ -29,7 +29,7 @@ const Total = (props) => {
   return (
 
     <div className="Total">
-      <div className="subtotal">Subtotal: {props.subtotal}</div>
+      <div className="subtotal">Subtotal: ${props.subtotal}</div>
 
       <label >Tax Rate</label>
       <input placeholder="Enter Tax Rate"
@@ -38,7 +38,7 @@ const Total = (props) => {
                onChange={event => props.handleTaxRateUpdate(event)}
                 className="taxRate"/>
 
-      <div className="taxes">Taxes: {taxValue}</div>
+              <div className="taxes">Taxes: ${taxValue}</div>
 
       <label >Discounts </label>
       <input placeholder="Apply Relevent Discounts"
@@ -47,7 +47,7 @@ const Total = (props) => {
                onChange={event => props.handleDiscountUpdate(event)}
                className="discounts"/>
 
-      <div className="total">Total: {total}</div>
+             <div className="total">Total: ${total}</div>
       </div>
   )
 }

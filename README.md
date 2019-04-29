@@ -19,13 +19,15 @@ Thanks for taking the time to review my code challenge.
 
 * Preview renders all of the data collected by App and formats the data into invoices.
 
-## Featured Libraries and My Decision-making process
+## Featured Libraries and My Decision-Making Process
 
 * I chose to use React as my JavaScript framework because I wanted to be able to centralize the data I collect from users into one object, which React provides through Application state.
 
 * I use SCSS/Sass as my CSS preprocessor. In other projects I have opted for styled-components and appreciate how that library can simplify the file structure of a repo. However, I wanted easy access to Sass variables and felt it was the tool that would help me style my project most efficiently within the time for this project.
 
-* The other libraries I chose to include are jsPDF and html2canvas. Using these two libraries I am able to take a screenshot of a given component on the user's screen and convert the image to a PDF for downloading. While I debated whether the actual form of the invoice generator should mirror the invoice it generates, I chose to build out the Preview component so that the final invoice generated didn't include buttons or other HTML markup that wouldn't translate to an offline document. Interestingly, the functionality for downloading the PDF version of the invoice works best on mobile. During a second iteration of this project, I would explore how I can configure these libraries to more effectively render the invoice data across all devices. 
+* The other libraries I chose to include are jsPDF and html2canvas. Using these two libraries I am able to take a screenshot of a given component on the user's screen and convert the image to a PDF for downloading. While I debated whether the actual form of the invoice generator should mirror the invoice it generates, I chose to build out the Preview component so that the final invoice generated didn't include buttons or other HTML markup that wouldn't translate to an offline document. Interestingly, the functionality for downloading the PDF version of the invoice works best on mobile. During a second iteration of this project, I would explore how I can configure these libraries to more effectively render the invoice data across all devices.
+
+* One potentially controversial decision I made was to not auto-generate the balance for each LineItem. I thought about instances in which an item might not have a straightforward quantity or rate, for instance a service performed. While the subtotal and total collect all of the balance data from the LineItems, users input that balance data manually to ensure the code isn't forcing a user to generate a calculation from the rate and quantity fields if they do not apply.
 
 ## Testing
 
